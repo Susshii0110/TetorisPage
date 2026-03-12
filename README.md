@@ -1,0 +1,2 @@
+# TetorisPage
+next.jsとpythonを用いたテトリスのwebアプリを作ってみる
