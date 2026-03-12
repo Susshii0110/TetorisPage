@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import styles from "./tetoris.module.css";
 
 // 型定義
 type Cell = string | null;
@@ -165,34 +166,29 @@ export default function Tetris() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: 24, background: "#111", minHeight: "100vh", color: "#fff", fontFamily: "monospace" }}>
-      <h1 style={{ letterSpacing: 8, marginBottom: 16 }}>TETRIS</h1>
-      <div style={{ marginBottom: 12, fontSize: 18 }}>SCORE: {score}</div>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>TETRIS</h1>
+      <div className={styles.score}>SCORE: {score}</div>
 
       {/* ボード */}
-      <div style={{ border: "2px solid #555", display: "inline-block" }}>
+      <div className={styles.board}>
         {display.map((row, r) => (
-          <div key={r} style={{ display: "flex" }}>
+          <div key={r} className={styles.row}>
             {row.map((cell, c) => (
-              <div key={c} style={{
-                width: 28, height: 28,
-                background: cell ?? "#1a1a1a",
-                border: "1px solid #2a2a2a",
-                boxSizing: "border-box",
-              }} />
+              <div key={c} className={styles.cell} />
             ))}
           </div>
         ))}
       </div>
 
       {/* ボタン */}
-      <button onClick={start} style={{ marginTop: 20, padding: "10px 32px", fontSize: 16, cursor: "pointer", background: "#333", color: "#fff", border: "1px solid #666", letterSpacing: 4 }}>
+      <button onClick={start} className={styles.button}>
         {over ? "RETRY" : running ? "RESTART" : "START"}
       </button>
 
-      {over && <div style={{ marginTop: 12, color: "#ff3131", letterSpacing: 4 }}>GAME OVER</div>}
+      {over && <div className={styles.gameOver}>GAME OVER</div>}
 
-      <div style={{ marginTop: 16, fontSize: 11, color: "#555", lineHeight: 2 }}>
+      <div className={styles.instructions}>
         ← → 移動　↑ 回転　↓ 落下　SPACE ドロップ
       </div>
     </div>
