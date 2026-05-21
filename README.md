@@ -1,5 +1,5 @@
 # TetorisPage
-next.jsとpythonを用いたテトリスのwebアプリを作ってみる
+next.jsとpythonを用いたテトリスのwebアプリをLLMに作ってもらい、仕組みを理解する
 ベースの部分はClaudeを用いて作成する。
 
-リンク(公開したら):
+リンク(もし公開したら):
